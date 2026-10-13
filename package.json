@@ -1,0 +1,21 @@
+{
+  "name": "carrillon-bingo",
+  "version": "1.0.0",
+  "description": "Simulador interactivo de carillón educativo para practicar la canción B-I-N-G-O (Arreglo Boomy Tunes con Deskbells & Boomwhackers)",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 3001"
+  },
+  "keywords": [
+    "carrillon",
+    "glockenspiel",
+    "musica",
+    "primaria",
+    "bingo",
+    "boomwhackers",
+    "deskbells",
+    "educacion-musical"
+  ],
+  "author": "Fran Guerrero",
+  "license": "MIT"
+}
