@@ -127,7 +127,8 @@ function updatePhraseBells(phraseIdx, verseNum = 1) {
  * Posiciona suavemente el marcador (perrito/percutor) sobre la campana activa
  */
 function positionMalletMarker(beatIdx) {
-  const targetBell = bellElements[beatIdx]?.root;
+  const targetBellObj = bellElements[beatIdx];
+  const targetBell = targetBellObj ? targetBellObj.root : null;
   if (!targetBell) return;
 
   const trackRect = document.getElementById('bells-track').getBoundingClientRect();
@@ -236,8 +237,8 @@ function setupPracticeEngineCallbacks() {
     if (res.success) {
       hitFeedback.textContent = res.message;
       hitFeedback.classList.add('feedback-perfect', 'show');
-      if (practiceEngine.currentExpectedNote) {
-        bellElements[practiceEngine.currentExpectedNote.beatIndex]?.root.classList.add('hit-success');
+      if (practiceEngine.currentExpectedNote && bellElements[practiceEngine.currentExpectedNote.beatIndex]) {
+        bellElements[practiceEngine.currentExpectedNote.beatIndex].root.classList.add('hit-success');
       }
     } else if (res.type === 'miss') {
       hitFeedback.textContent = res.message;

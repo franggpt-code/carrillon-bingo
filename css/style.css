@@ -43,8 +43,8 @@ body {
    ========================================================================== */
 .app-header {
   background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   padding: 10px 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   display: flex;
@@ -60,6 +60,9 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+.brand > * + * {
+  margin-left: 10px;
 }
 
 .brand-icon {
@@ -90,6 +93,9 @@ body {
   flex-wrap: wrap;
   align-items: center;
   gap: 10px;
+}
+.controls-toolbar > * {
+  margin: 4px 3px;
 }
 
 .control-group {
@@ -427,6 +433,11 @@ body {
   align-items: center;
   gap: 8px;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carillon-felt-rail > * + * {
+  margin-left: 6px;
 }
 
 /* Placas metálicas individuales (Bars) */
