@@ -10,7 +10,7 @@ export class PracticeEngine {
   constructor() {
     this.mode = 'playalong'; // 'playalong' | 'stepbystep' | 'autoplay' | 'free'
     this.status = 'idle'; // 'idle' | 'countin' | 'playing' | 'paused' | 'finished'
-    this.bpm = 96;
+    this.bpm = 60; // Exactamente el tempo del vídeo de Boomy Tunes (1 pulso = 1 segundo)
     this.versesCount = 3;
 
     this.timelineData = null;
@@ -33,7 +33,7 @@ export class PracticeEngine {
     // Estado del pulso actual y ventana de tolerancia
     this.currentExpectedNote = null;
     this.expectedNoteHandled = false;
-    this.toleranceMs = 380; // Ventana de tolerancia para niños
+    this.toleranceMs = 600; // Ventana de tolerancia generosa para niños (600ms)
 
     // Callbacks a la UI
     this.listeners = {

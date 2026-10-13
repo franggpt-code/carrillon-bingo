@@ -129,13 +129,19 @@ function updatePhraseBells(phraseIdx, verseNum = 1) {
 function positionMalletMarker(beatIdx) {
   const targetBellObj = bellElements[beatIdx];
   const targetBell = targetBellObj ? targetBellObj.root : null;
-  if (!targetBell) return;
+  if (!targetBell || !malletMarker) return;
 
-  const trackRect = document.getElementById('bells-track').getBoundingClientRect();
+  const trackEl = document.getElementById('bells-track');
+  if (!trackEl) return;
+
+  const trackRect = trackEl.getBoundingClientRect();
   const bellRect = targetBell.getBoundingClientRect();
   const centerRel = (bellRect.left + bellRect.width / 2) - trackRect.left;
 
   malletMarker.style.left = `${centerRel}px`;
+  malletMarker.classList.remove('jumping');
+  void malletMarker.offsetWidth; // forzar reflow
+  malletMarker.classList.add('jumping');
 }
 
 /**

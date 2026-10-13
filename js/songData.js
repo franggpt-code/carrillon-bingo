@@ -178,8 +178,8 @@ export const VERSE_PHRASES = [
  * @param {number} versesCount Número de estrofas (1 a 3)
  * @param {number} bpm Pulsos por minuto (por defecto 96)
  */
-export function buildSongTimeline(versesCount = 3, bpm = 96) {
-  const beatDuration = 60 / bpm; // segundos por pulso
+export function buildSongTimeline(versesCount = 3, bpm = 60) {
+  const beatDuration = 60 / bpm; // segundos por pulso (a 60 BPM = 1.0 segundo por pulso)
   const timeline = [];
 
   let currentTime = 0;

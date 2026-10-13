@@ -171,7 +171,7 @@
 
   function buildSongTimeline(versesCount, bpm) {
     if (typeof versesCount === 'undefined') versesCount = 3;
-    if (typeof bpm === 'undefined') bpm = 96;
+    if (typeof bpm === 'undefined') bpm = 60;
 
     var beatDuration = 60 / bpm;
     var timeline = [];
@@ -658,7 +658,7 @@
   function PracticeEngine() {
     this.mode = 'playalong';
     this.status = 'idle';
-    this.bpm = 96;
+    this.bpm = 60; // Exactamente el ritmo del vídeo de Boomy Tunes
     this.versesCount = 3;
 
     this.timelineData = null;
@@ -678,7 +678,7 @@
 
     this.currentExpectedNote = null;
     this.expectedNoteHandled = false;
-    this.toleranceMs = 380;
+    this.toleranceMs = 600; // Tolerancia adaptada para niños a 60 BPM
 
     this.listeners = {
       onStateChange: function () {},
@@ -1137,6 +1137,9 @@
     var centerRel = (bellRect.left + bellRect.width / 2) - trackRect.left;
 
     malletMarker.style.left = centerRel + 'px';
+    malletMarker.classList.remove('jumping');
+    void malletMarker.offsetWidth; // forzar reflow
+    malletMarker.classList.add('jumping');
   }
 
   function triggerBarHit(noteId, isUser) {
